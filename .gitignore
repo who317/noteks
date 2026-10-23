@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+*.zip
+node_modules/
+# local notes for the Chrome Web Store submission
+store-listing.md

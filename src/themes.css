@@ -1,0 +1,218 @@
+/* NoteKS - Theme System
+   This file is shared by both popup.html and content.js (the X.com page).
+   Themes switch by setting a data-tn-theme="..." attribute on
+   document.documentElement. Each block below defines the CSS custom
+   properties that kick in while that theme is selected. Every other file
+   (popup.css, content.css) only ever consumes these values via var(--tn-...). */
+
+/* ===== 1) MINIMALISM (default) =====
+   Plain, neutral, low color, thin borders, light shadow. */
+[data-tn-theme="minimalism"] {
+  --tn-bg: #FBFAF7;
+  --tn-surface: #FFFFFF;
+  --tn-text: #1B1B1F;
+  --tn-text-muted: #6B6B70;
+  --tn-border: #E6E4DF;
+  --tn-border-width: 1px;
+  --tn-accent: #4338CA;
+  --tn-accent-hover: #372DAE;
+  --tn-accent-text: #FFFFFF;
+  --tn-highlight: #D9A441;
+  --tn-highlight-hover: #B8862F;
+  --tn-danger: #B3261E;
+  --tn-radius-sm: 4px;
+  --tn-radius-md: 8px;
+  --tn-radius-lg: 10px;
+  --tn-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --tn-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --tn-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tn-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --tn-font-weight-bold: 600;
+  --tn-note-accent-width: 3px;
+}
+
+/* ===== 5) DARK MODE =====
+   Same structure as Minimalism, dark color scheme. */
+[data-tn-theme="dark"] {
+  --tn-bg: #15151A;
+  --tn-surface: #1E1E24;
+  --tn-text: #F2F1F5;
+  --tn-text-muted: #9A98A3;
+  --tn-border: #2E2E36;
+  --tn-border-width: 1px;
+  --tn-accent: #7C6FF0;
+  --tn-accent-hover: #6558D8;
+  --tn-accent-text: #FFFFFF;
+  --tn-highlight: #F2C572;
+  --tn-highlight-hover: #D9A93F;
+  --tn-danger: #FF6B6B;
+  --tn-radius-sm: 4px;
+  --tn-radius-md: 8px;
+  --tn-radius-lg: 10px;
+  --tn-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --tn-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --tn-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tn-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --tn-font-weight-bold: 600;
+  --tn-note-accent-width: 3px;
+}
+
+/* ===== 2) NEOBRUTALISM =====
+   Thick black borders, hard (blur-free) offset shadows, bold/saturated colors. */
+[data-tn-theme="neobrutalism"] {
+  --tn-bg: #FFF4E0;
+  --tn-surface: #FFFFFF;
+  --tn-text: #111111;
+  --tn-text-muted: #45403A;
+  --tn-border: #111111;
+  --tn-border-width: 2px;
+  --tn-accent: #6C5CE7;
+  --tn-accent-hover: #5849C4;
+  --tn-accent-text: #FFFFFF;
+  --tn-highlight: #FFD23F;
+  --tn-highlight-hover: #E5B800;
+  --tn-danger: #FF5C5C;
+  --tn-radius-sm: 4px;
+  --tn-radius-md: 6px;
+  --tn-radius-lg: 8px;
+  --tn-shadow-sm: 3px 3px 0 #111111;
+  --tn-shadow-md: 5px 5px 0 #111111;
+  --tn-font-sans: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --tn-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --tn-font-weight-bold: 800;
+  --tn-note-accent-width: 4px;
+}
+
+/* ===== 3) WEB BRUTALISM =====
+   Raw, square (no radius), no shadows, black & white + one accent color, monospace. */
+[data-tn-theme="brutalism"] {
+  --tn-bg: #FFFFFF;
+  --tn-surface: #FFFFFF;
+  --tn-text: #000000;
+  --tn-text-muted: #555555;
+  --tn-border: #000000;
+  --tn-border-width: 1px;
+  --tn-accent: #000000;
+  --tn-accent-hover: #DD0000;
+  --tn-accent-text: #FFFFFF;
+  --tn-highlight: #DD0000;
+  --tn-highlight-hover: #A80000;
+  --tn-danger: #DD0000;
+  --tn-radius-sm: 0px;
+  --tn-radius-md: 0px;
+  --tn-radius-lg: 0px;
+  --tn-shadow-sm: none;
+  --tn-shadow-md: none;
+  --tn-font-sans: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
+  --tn-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
+  --tn-font-weight-bold: 700;
+  --tn-note-accent-width: 2px;
+}
+
+/* ===== 4) CLAYMORPHISM =====
+   Soft, pastel, very rounded corners, puffy dual-direction shadows. */
+[data-tn-theme="claymorphism"] {
+  --tn-bg: #EDE7F6;
+  --tn-surface: #F5F1FB;
+  --tn-text: #3D3450;
+  --tn-text-muted: #7A6F91;
+  --tn-border: transparent;
+  --tn-border-width: 0px;
+  --tn-accent: #9B87C4;
+  --tn-accent-hover: #8570B3;
+  --tn-accent-text: #FFFFFF;
+  --tn-highlight: #FFB6C1;
+  --tn-highlight-hover: #F797A8;
+  --tn-danger: #F28B82;
+  --tn-radius-sm: 12px;
+  --tn-radius-md: 18px;
+  --tn-radius-lg: 24px;
+  --tn-shadow-sm: 4px 4px 10px rgba(158, 140, 197, 0.35), -3px -3px 8px rgba(255, 255, 255, 0.8);
+  --tn-shadow-md: 8px 8px 18px rgba(158, 140, 197, 0.35), -5px -5px 14px rgba(255, 255, 255, 0.85);
+  --tn-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tn-font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --tn-font-weight-bold: 700;
+  --tn-note-accent-width: 6px;
+}
+
+/* ============================================================
+   STRUCTURAL DIFFERENCES (not just color/radius - behavior/shape changes too)
+   ============================================================ */
+
+/* --- Neobrutalism: bold uppercase headings, a "pressed into its shadow"
+   feel on click, the badge is a thick-bordered tag instead of a bare star --- */
+[data-tn-theme="neobrutalism"] .app-header h1,
+[data-tn-theme="neobrutalism"] .field-label,
+[data-tn-theme="neobrutalism"] .notes-title {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+[data-tn-theme="neobrutalism"] .save-btn:active,
+[data-tn-theme="neobrutalism"] .mini-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+[data-tn-theme="neobrutalism"] .tn-panel-header {
+  background: var(--tn-highlight);
+}
+
+[data-tn-theme="neobrutalism"] .tn-badge,
+[data-tn-theme="neobrutalism"] .tn-badge--inline {
+  background: var(--tn-highlight);
+  border: 2px solid var(--tn-border);
+  border-radius: 4px;
+  padding: 0 4px;
+  color: #111111;
+  font-size: 14px;
+}
+
+/* --- Web Brutalism: unfilled/outlined buttons that invert color on hover
+   (raw HTML link feel), the badge stays plain and undecorated --- */
+[data-tn-theme="brutalism"] .save-btn,
+[data-tn-theme="brutalism"] .mini-btn {
+  background: transparent;
+  color: var(--tn-text);
+  text-decoration: underline;
+  box-shadow: none;
+}
+
+[data-tn-theme="brutalism"] .save-btn:hover,
+[data-tn-theme="brutalism"] .mini-btn:hover {
+  background: var(--tn-text);
+  color: var(--tn-bg);
+}
+
+[data-tn-theme="brutalism"] .tn-panel-header {
+  border-bottom-width: 2px;
+}
+
+/* --- Claymorphism: the badge is now a puffy, round "blob"; buttons are
+   more "pillowy" (extra vertical padding); delete buttons are round too --- */
+[data-tn-theme="claymorphism"] .badge-preview {
+  border-radius: 50%;
+}
+
+[data-tn-theme="claymorphism"] .tn-badge,
+[data-tn-theme="claymorphism"] .tn-badge--inline {
+  background: var(--tn-highlight);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+  font-size: 12px;
+}
+
+[data-tn-theme="claymorphism"] .save-btn,
+[data-tn-theme="claymorphism"] .mini-btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+[data-tn-theme="claymorphism"] .delete-btn,
+[data-tn-theme="claymorphism"] .tn-panel-delete,
+[data-tn-theme="claymorphism"] .tn-panel-close {
+  border-radius: 50%;
+}

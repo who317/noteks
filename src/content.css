@@ -1,0 +1,91 @@
+/* This file ONLY holds badge styles. The tooltip and panel now live inside
+   Shadow DOM, injected via a separate <style> from content.js - fully
+   isolated from X's page CSS, protecting us from X and X from us. */
+
+/* Turns the box the badge is attached to into a positioning anchor */
+.tn-badge-anchor {
+  position: relative;
+}
+
+/* The badge added next to a person's name when they have a note.
+   Pinned to the corner with absolute positioning rather than sitting in the
+   box's normal flow - this way, X's different row layouts on different pages
+   (feed/detail/profile) can't knock the badge out of place. */
+.tn-badge {
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tn-highlight);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.12s ease, color 0.12s ease;
+}
+
+.tn-badge:hover {
+  color: var(--tn-highlight-hover);
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Used for narrow, reliable boxes like the @handle line in the profile header -
+   no need for absolute positioning at all, the box is already text-width. */
+.tn-badge--inline {
+  position: static;
+  margin-left: 6px;
+  transform: none;
+}
+
+.tn-badge--inline:hover {
+  color: var(--tn-highlight-hover);
+  transform: scale(1.15);
+}
+
+/* The subtle "+" badge shown next to people who don't have a note yet.
+   Dashed and low-opacity by default so it doesn't compete visually with
+   real ★ badges - it becomes clearer on hover, inviting a click. */
+.tn-add-badge {
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px dashed var(--tn-text-muted, currentColor);
+  border-radius: 50%;
+  color: var(--tn-text-muted, currentColor);
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.12s ease, transform 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.tn-add-badge:hover {
+  opacity: 1;
+  border-style: solid;
+  border-color: var(--tn-highlight);
+  color: var(--tn-highlight);
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* The <img> inside a badge when the user uploaded an image instead of emoji/text.
+   X's own image styles can override the size, so we force it with !important. */
+.tn-badge-img {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  border-radius: var(--tn-radius-sm) !important;
+  object-fit: cover !important;
+  display: block !important;
+  flex-shrink: 0;
+}

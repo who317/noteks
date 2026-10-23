@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — NoteKS</title>
+<style>
+:root{--bg:#F6F5FF;--card:#fff;--ink:#1D1A4E;--muted:#5B5880;--accent:#4338CA;--line:#E3E1F5}
+@media (prefers-color-scheme:dark){:root{--bg:#14122B;--card:#1C1A3A;--ink:#F2F1FA;--muted:#B5B2D6;--accent:#A9A2FF;--line:#2E2B54}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:40px auto;padding:0 20px}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 34px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:30px 0 8px}
+p{margin:0 0 12px} ul{margin:0 0 12px;padding-left:22px} li{margin-bottom:6px}
+.muted{color:var(--muted);margin-bottom:22px} a{color:var(--accent)}
+nav{display:flex;justify-content:space-between;margin-bottom:14px;font-weight:600}
+nav a{text-decoration:none} footer{color:var(--muted);font-size:14px;margin:18px 4px}
+</style></head><body><main>
+<nav><a href="./">NoteKS</a><a href="https://github.com/who317/noteks">Source on GitHub</a></nav>
+<article>
+<h1>Privacy Policy — NoteKS</h1>
+<div class="muted">Last updated: October 23, 2026</div>
+<p>NoteKS is a browser extension that lets users add personal notes to accounts they see on x.com.</p>
+<h2>Data Collection</h2>
+<p>This extension does not collect, process, or transmit your notes, photos, settings, or any personal data to any server. Everything you add is stored only in your browser&#x27;s local storage (chrome.storage.local).</p>
+<h2>Encryption</h2>
+<p>If you use the optional encryption feature, the text of your notes and any attached photos are encrypted with AES-256. The usernames you attach notes to, and the time each note was created, are NOT encrypted - anyone with access to your browser profile could see which accounts you have notes about, but not what the notes say. Your password is never written to disk or sent anywhere; if you forget it, encrypted notes cannot be recovered. While unlocked, a derived key is held in memory only (chrome.storage.session) and is cleared when the browser closes or after a short period of inactivity.</p>
+<h2>Optional Report &amp; Feedback Form</h2>
+<p>The settings panel contains a &quot;Report &amp; Feedback&quot; link. If you click it, a Google Form opens in a new browser tab with three technical fields pre-filled by the extension:</p>
+<ul>
+<li>your browser and operating system (e.g. &quot;Brave on Windows&quot;),
+<li>the extension version,
+<li>the most recent error message the extension recorded locally, if any (error text and code location only - never the content of your notes).</li>
+</ul>
+<p>The form also has fields you fill in yourself (for example a description of the problem); please do not put personal information there. You can read and edit everything before submitting. Nothing is sent unless you press Submit in the form. Submitted responses are collected through Google Forms and are subject to Google&#x27;s own privacy policy. The extension itself makes no network requests.</p>
+<h2>Data Sharing</h2>
+<p>No data is shared with any third party by the extension. The only data that can leave your device is what you yourself choose to submit through the optional feedback form described above.</p>
+<h2>Data Deletion</h2>
+<p>Uninstalling the extension automatically deletes all your notes and settings via Chrome. You can also manually clear your notes anytime from the settings panel. To request deletion of a feedback form submission, open an issue at the address below (describe roughly when you submitted it, and do not include personal details in the issue).</p>
+<h2>Affiliation</h2>
+<p>NoteKS is an independent extension. It is not affiliated with, endorsed by, or sponsored by X Corp.</p>
+<h2>Contact</h2>
+<p>For questions, open an issue: <a href="https://github.com/who317/noteks/issues">https://github.com/who317/noteks/issues</a></p>
+</article>
+<footer>NoteKS is an independent project. It is not affiliated with, endorsed by, or sponsored by X Corp.</footer>
+</main></body></html>

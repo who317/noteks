@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-tn-theme="minimalism">
+<head>
+<meta charset="UTF-8" />
+<title>NoteKS</title>
+<link rel="stylesheet" href="themes.css" />
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="app-header-row">
+      <div>
+        <h1>NoteKS</h1>
+        <p class="tagline" id="header-tagline">Keep personal notes on people, and get reminded when you see them again.</p>
+      </div>
+      <button type="button" id="settings-toggle" class="settings-gear" aria-label="Settings" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <section id="settings-panel" class="settings-panel" hidden>
+    <div class="theme-section">
+      <span class="field-label">Theme</span>
+      <div class="theme-options" id="theme-options">
+        <button type="button" class="theme-option" data-theme="minimalism">
+          <span class="theme-swatch" style="background:#4338CA"></span> Minimalism
+        </button>
+        <button type="button" class="theme-option" data-theme="dark">
+          <span class="theme-swatch" style="background:#15151A"></span> Dark Mode
+        </button>
+        <button type="button" class="theme-option" data-theme="neobrutalism">
+          <span class="theme-swatch" style="background:#6C5CE7"></span> Neobrutalism
+        </button>
+        <button type="button" class="theme-option" data-theme="brutalism">
+          <span class="theme-swatch" style="background:#000000"></span> Brutalism
+        </button>
+        <button type="button" class="theme-option" data-theme="claymorphism">
+          <span class="theme-swatch" style="background:#9B87C4"></span> Claymorphism
+        </button>
+      </div>
+    </div>
+
+    <div class="security-section">
+      <span class="field-label">Security</span>
+
+      <div id="security-state-off">
+        <label class="switch-row">
+          <span>Encrypt notes</span>
+          <input type="checkbox" id="encryption-toggle" class="switch-input" />
+          <span class="switch-track"></span>
+        </label>
+      </div>
+
+      <div id="security-state-setup" class="security-form" hidden>
+        <p class="security-hint">Set a master password. <strong>If you forget it, your notes are permanently lost</strong> — there's no recovery option.</p>
+        <input type="password" id="setup-password" class="badge-text-input" placeholder="Password (at least 6 characters)" />
+        <input type="password" id="setup-password-confirm" class="badge-text-input" placeholder="Confirm password" />
+        <div class="badge-controls">
+          <button type="button" id="setup-confirm-btn" class="mini-btn">Set Password</button>
+          <button type="button" id="setup-cancel-btn" class="mini-btn mini-btn-secondary">Cancel</button>
+        </div>
+      </div>
+
+      <div id="security-state-locked" class="security-form" hidden>
+        <p class="security-hint">🔒 Notes are locked.</p>
+        <input type="password" id="unlock-password" class="badge-text-input" placeholder="Password" />
+        <div class="badge-controls">
+          <button type="button" id="unlock-btn" class="mini-btn">Unlock</button>
+        </div>
+      </div>
+
+      <div id="security-state-unlocked" class="security-form" hidden>
+        <p class="security-hint">🔓 Notes are encrypted and currently unlocked.</p>
+        <div class="badge-controls">
+          <button type="button" id="lock-now-btn" class="mini-btn mini-btn-secondary">Lock Now</button>
+          <button type="button" id="disable-encryption-btn" class="mini-btn mini-btn-secondary">Remove Encryption</button>
+        </div>
+      </div>
+
+      <p id="security-status" class="backup-status"></p>
+    </div>
+
+    <div class="badge-section">
+      <span class="field-label">Badge appearance</span>
+      <div class="badge-preview-row">
+        <span id="badge-preview" class="badge-preview">★</span>
+        <div class="badge-controls">
+          <input type="text" id="badge-text-input" class="badge-text-input" placeholder="Emoji or short text" maxlength="4" />
+          <button type="button" id="badge-text-save" class="mini-btn">Save</button>
+        </div>
+      </div>
+      <div class="badge-controls">
+        <label class="file-label">
+          Upload image
+          <input type="file" id="badge-image-input" accept="image/png,image/jpeg" hidden />
+        </label>
+        <button type="button" id="badge-reset" class="mini-btn mini-btn-secondary">Reset to default</button>
+      </div>
+    </div>
+
+    <div class="backup-section">
+      <span class="field-label">Backup</span>
+      <p class="backup-hint">Your notes only live on this device. Export a copy every now and then so you don't lose them.</p>
+      <div class="badge-controls">
+        <button type="button" id="export-notes" class="mini-btn mini-btn-secondary">Export</button>
+        <label class="file-label">
+          Import
+          <input type="file" id="import-notes-input" accept="application/json" hidden />
+        </label>
+      </div>
+      <p id="backup-status" class="backup-status"></p>
+    </div>
+
+    <div class="support-section">
+      <span class="field-label">Support</span>
+      <p class="backup-hint">Found a bug or have an idea? Your browser, OS, extension version, and the last error message are filled in for you in a Google Form. Nothing is sent until you press Submit there, and your notes are never included.</p>
+      <a href="#" id="report-feedback-link" class="support-link">Report &amp; Feedback</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <p id="note-form-locked-msg" class="locked-msg" hidden>🔒 Unlock first to add notes (from the settings panel).</p>
+  <form id="note-form" class="note-form">
+    <label class="field">
+      <span class="field-label">Username</span>
+      <div class="handle-input">
+        <span class="at-prefix">@</span>
+        <input type="text" id="handle-input" placeholder="username" autocomplete="off" />
+      </div>
+    </label>
+    <label class="field">
+      <span class="field-label">Note</span>
+      <textarea id="note-input" rows="3" maxlength="500" placeholder="What do you want to remember about this person?"></textarea>
+    </label>
+    <div class="note-photo-row">
+      <label class="file-label small">
+        📷 Add photo
+        <input type="file" id="note-photo-input" accept="image/png,image/jpeg" hidden />
+      </label>
+      <div id="note-photo-preview" class="note-photo-preview" hidden>
+        <img id="note-photo-preview-img" alt="" />
+        <button type="button" id="note-photo-remove" class="note-photo-remove" aria-label="Remove photo">×</button>
+      </div>
+    </div>
+    <button type="submit" class="save-btn">Save note</button>
+    <p id="note-status" class="backup-status"></p>
+  </form>
+
+  <div class="divider"></div>
+
+  <section class="notes-section">
+    <div class="notes-section-header">
+      <h2 class="notes-title">Your notes</h2>
+      <span id="notes-count-badge" class="notes-count-badge" hidden></span>
+    </div>
+    <ul id="notes-list" class="notes-list"></ul>
+    <div id="empty-state" class="empty-state">
+      <span class="empty-state-star">★</span>
+      <p class="empty-state-text">You haven't left a note for anyone yet</p>
+      <p class="empty-state-hint">Click the + next to someone's name as you browse, or add one above</p>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
