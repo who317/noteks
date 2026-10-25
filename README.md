@@ -32,6 +32,8 @@ A small ★ appears next to anyone you have a note on, so you never have to wond
 
 **Chrome Web Store:** [Install NoteKS](https://chromewebstore.google.com/detail/nkdncgfaejeohhhppgidhlopegfafjea)
 
+**From source** (Chrome, Brave, Edge and other Chromium-based browsers):
+
 1. Download or clone this repository.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and choose the folder that contains `manifest.json`.
