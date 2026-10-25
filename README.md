@@ -30,8 +30,7 @@ A small ★ appears next to anyone you have a note on, so you never have to wond
 
 ## Install
 
-**Chrome Web Store:** coming soon. The link will be added here.
-
+**Chrome Web Store:** (https://chromewebstore.google.com/detail/nkdncgfaejeohhhppgidhlopegfafjea?utm_source=item-share-cb)
 **From source** (Chrome, Brave, Edge and other Chromium-based browsers):
 
 1. Download or clone this repository.
