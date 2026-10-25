@@ -30,8 +30,7 @@ A small ★ appears next to anyone you have a note on, so you never have to wond
 
 ## Install
 
-**Chrome Web Store:** (https://chromewebstore.google.com/detail/nkdncgfaejeohhhppgidhlopegfafjea?utm_source=item-share-cb)
-**From source** (Chrome, Brave, Edge and other Chromium-based browsers):
+**Chrome Web Store:** [Install NoteKS](https://chromewebstore.google.com/detail/nkdncgfaejeohhhppgidhlopegfafjea)
 
 1. Download or clone this repository.
 2. Open `chrome://extensions` and turn on **Developer mode**.
